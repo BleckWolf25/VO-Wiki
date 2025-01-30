@@ -3,60 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/css/style.css">
-    <title>MiniWiki - Home</title>
+    <meta name="description" content="Official documentation for the Velocita Optimized Minecraft Modpack">
+    <title>Velocita Optimized Wiki</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/public/css/home.css">
 </head>
 <body>
-    <div class="wiki-container">
-        <header>
-            <h1>Welcome to the Wiki</h1>
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/pages">Pages</a></li>
-                    <li><a href="/about">About</a></li>
+    <header class="header">
+        <div class="header__container">
+            <a href="/" class="header__logo">
+                <img src="/src/public/images/VO.png" alt="VO Logo" width="32" height="32">
+                <span>Velocita Optimized</span>
+            </a>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="/getting-started" class="nav__link">Getting Started</a></li>
+                    <li><a href="/mods" class="nav__link">Mods</a></li>
+                    <li><a href="/guides" class="nav__link">Guides</a></li>
+                    <li><a href="/support" class="nav__link">Support</a></li>
                 </ul>
             </nav>
-        </header>
-        <main class="main-content">
-            <h1>Welcome to MiniWiki</h1>
-            <p class="intro">Your gateway to knowledge and discovery.</p>
+            <div class="search">
+                <input type="search" placeholder="Search documentation..." aria-label="Search">
+            </div>
+        </div>
+    </header>
 
-            <div class="stats-container">
-                <div class="stat-card">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Articles</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Contributors</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">1000+</div>
-                    <div class="stat-label">Daily Views</div>
+    <main>
+        <section class="hero">
+            <div class="hero__content">
+                <h1>Velocita Optimized Wiki</h1>
+                <p>Everything you need to know about the performance or Vanilla QoL on a Minecraft Modpack</p>
+                <div class="hero__actions">
+                    <a href="/getting-started" class="button button--primary">Get Started</a>
+                    <a href="https://github.com/JotaRYT/Velocita-Optimized" class="button button--secondary">Download</a>
                 </div>
             </div>
+        </section>
 
-            <h2>Featured Articles</h2>
-            <div class="featured-articles">
-                <div class="article-card">
-                    <h3>Getting Started</h3>
-                    <p>Learn how to navigate and contribute to MiniWiki.</p>
-                    <a href="/article/getting-started">Read more →</a>
-                </div>
-                <div class="article-card">
-                    <h3>Latest Updates</h3>
-                    <p>Check out our most recent article additions and updates.</p>
-                    <a href="/article/latest-updates">Read more →</a>
-                </div>
-                <div class="article-card">
-                    <h3>Community Guidelines</h3>
-                    <p>Understanding our community standards and practices.</p>
-                    <a href="/article/community-guidelines">Read more →</a>
+        <section class="features">
+            <div class="container">
+                <div class="features__grid">
+                    <article class="feature-card">
+                        <div class="feature-card__icon">📦</div>
+                        <h2>Installation Guide</h2>
+                        <p>Step-by-step instructions to get you up and running quickly</p>
+                        <a href="/installation" class="feature-card__link">Learn more →</a>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-card__icon">🚀</div>
+                        <h2>Performance Tips</h2>
+                        <p>Optimize your gameplay with our recommended settings</p>
+                        <a href="/performance" class="feature-card__link">Learn more →</a>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-card__icon">🔧</div>
+                        <h2>Mod Configuration</h2>
+                        <p>Configure each mod for the best experience</p>
+                        <a href="/configuration" class="feature-card__link">Learn more →</a>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-card__icon">❓</div>
+                        <h2>Troubleshooting</h2>
+                        <p>Solutions to common issues and problems</p>
+                        <a href="/troubleshooting" class="feature-card__link">Learn more →</a>
+                    </article>
                 </div>
             </div>
-        </main>
-    </div>
-    <script src="/src/public/js/main.js"></script>
+        </section>
+
+        <section class="quick-links">
+            <div class="container">
+                <h2>Quick Topics</h2>
+                <div class="quick-links__grid">
+                    <a href="/performance-guide" class="quick-link">
+                        <h3>Performance Guide</h3>
+                        <p>Optimize your gameplay settings</p>
+                    </a>
+                    <a href="/mod-list" class="quick-link">
+                        <h3>Mod List</h3>
+                        <p>Complete list of most included mods</p>
+                    </a>
+                    <a href="/screenshots" class="quick-link">
+                        <h3>Screenshots</h3>
+                        <p>See the modpack in action</p>
+                    </a>
+                    <a href="/faq" class="quick-link">
+                        <h3>FAQ</h3>
+                        <p>Frequently asked questions</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <img src="/src/public/images/VO.png" alt="VO Logo" width="24" height="24">
+                    <p>Velocita Optimized Wiki</p>
+                </div>
+                <nav class="footer__links">
+                    <div class="footer__column">
+                        <h4>Documentation</h4>
+                        <ul>
+                            <li><a href="/getting-started">Getting Started</a></li>
+                            <li><a href="/installation">Installation</a></li>
+                            <li><a href="/guides">Guides</a></li>
+                            <li><a href="/mods">Mods</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__column">
+                        <h4>Community</h4>
+                        <ul>
+                            <li><a href="https://discord.gg/evhMuYeSYJ">Discord</a></li>
+                            <li><a href="https://github.com/JotaRYT/Velocita-Optimized">GitHub</a></li>
+                            <li><a href="https://github.com/JotaRYT/Velocita-Optimized/issues">Issue Tracker</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="/faq">FAQ</a></li>
+                            <li><a href="/troubleshooting">Troubleshooting</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 Velocita Optimized. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
