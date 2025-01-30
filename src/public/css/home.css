@@ -286,6 +286,44 @@ body {
     opacity: 1;
 }
 
+/* Progress Bar */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: var(--color-primary);
+    z-index: 1000;
+    width: 0;
+    transition: width 0.2s ease;
+}
+
+/* Toast Notifications */
+.toast {
+    position: fixed;
+    bottom: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-secondary);
+    color: white;
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.toast--visible {
+    opacity: 1;
+}
+
+.toast--success {
+    background: #28a745;
+}
+
+.toast--error {
+    background: #dc3545;
+}
+
 .footer__bottom {
     margin-top: var(--space-2xl);
     padding-top: var(--space-lg);
