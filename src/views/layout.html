@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <title>MiniWiki - {{ title }}</title>
+</head>
+<body>
+    <div class="wiki-container">
+        <header class="wiki-header">
+            <div class="logo">MiniWiki</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/pages">All Pages</a></li>
+                    <li><a href="/random">Random Article</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="search" placeholder="Search MiniWiki">
+            </div>
+        </header>
+        <div class="wiki-content">
+            <aside class="sidebar">
+                <div class="toc">
+                    <h3>Contents</h3>
+                    <ul id="tableOfContents">
+                        <!-- Dynamically filled by JavaScript -->
+                    </ul>
+                </div>
+            </aside>
+            <main class="main-content">
+                {{ content }}
+            </main>
+        </div>
+    </div>
+    <script src="/public/js/main.js"></script>
+</body>
+</html>
