@@ -1,122 +1,169 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Smooth scrolling for anchor links
+    // Advanced Smooth Scrolling with Easing
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+            const target = document.querySelector(this.getAttribute('href'));
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
             });
         });
     });
 
-    // Lazy loading for images
+    // Enhanced Lazy Loading with Placeholder Effect
     const lazyImages = document.querySelectorAll('img[data-src]');
+    const lazyLoadOptions = {
+        rootMargin: '50px 0px',
+        threshold: 0.01
+    };
+
     const lazyLoad = (target) => {
-        const io = new IntersectionObserver((entries, observer) => {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
+                    
+                    // Add a subtle blur-to-clear transition
+                    img.style.filter = 'blur(10px)';
+                    img.style.transition = 'filter 0.3s ease-in-out';
+                    
                     img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
+                    img.onload = () => {
+                        img.removeAttribute('data-src');
+                        img.style.filter = 'blur(0)';
+                    };
+                    
                     observer.unobserve(img);
                 }
             });
-        });
+        }, lazyLoadOptions);
 
-        io.observe(target);
+        imageObserver.observe(target);
     };
 
     lazyImages.forEach(lazyLoad);
 
-    // Add hover effects to buttons and cards
-    const buttons = document.querySelectorAll('.button');
-    const cards = document.querySelectorAll('.feature-card, .quick-link');
+    // Advanced Interactive Hover Effects with Performance Optimization
+    const interactiveElements = document.querySelectorAll('.interactive-element');
+    const throttle = (func, limit) => {
+        let inThrottle;
+        return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        }
+    };
 
-    buttons.forEach(button => {
-        button.addEventListener('mouseenter', () => {
-            button.style.transform = 'scale(1.05)';
-        });
-        button.addEventListener('mouseleave', () => {
-            button.style.transform = 'scale(1)';
-        });
+    interactiveElements.forEach(element => {
+        const hoverHandler = throttle((e) => {
+            element.style.transform = 'scale(1.02)';
+            element.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.15)';
+        }, 50);
+
+        const leaveHandler = throttle((e) => {
+            element.style.transform = 'scale(1)';
+            element.style.boxShadow = 'none';
+        }, 50);
+
+        element.addEventListener('mouseenter', hoverHandler);
+        element.addEventListener('mouseleave', leaveHandler);
     });
 
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-5px)';
-            card.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
-        });
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0)';
-            card.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-        });
-    });
+    // Advanced Scroll-Triggered Animations
+    const animateOnScroll = () => {
+        const revealElements = document.querySelectorAll('.reveal');
+        const windowHeight = window.innerHeight;
 
-    // Progress Bar
-    const progressBar = document.createElement('div');
-    progressBar.classList.add('progress-bar');
-    document.body.insertBefore(progressBar, document.querySelector('header'));
+        revealElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementBottom = element.getBoundingClientRect().bottom;
+            const revealPoint = 150;
 
-    window.addEventListener('scroll', () => {
-        const scrollTop = document.documentElement.scrollTop;
-        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrollPercentage = (scrollTop / scrollHeight) * 100;
-        progressBar.style.width = `${scrollPercentage}%`;
-    });
-
-    // Toast Notifications
-    function showToast(message, type = 'info') {
-        const toast = document.createElement('div');
-        toast.classList.add('toast', `toast--${type}`);
-        toast.textContent = message;
-        document.body.appendChild(toast);
-
-        setTimeout(() => {
-            toast.classList.add('toast--visible');
-        }, 100);
-
-        setTimeout(() => {
-            toast.classList.remove('toast--visible');
-            setTimeout(() => {
-                toast.remove();
-            }, 300);
-        }, 3000);
-    }
-
-    // Add focus styles for better accessibility
-    const focusableElements = document.querySelectorAll('a, button, input, textarea, select, [tabindex]');
-    focusableElements.forEach(element => {
-        element.addEventListener('focus', () => {
-            element.style.outline = `2px solid ${getComputedStyle(document.documentElement).getPropertyValue('--color-primary')}`;
-            element.style.outlineOffset = '2px';
-        });
-        element.addEventListener('blur', () => {
-            element.style.outline = 'none';
-        });
-    });
-
-    // Add a subtle fade-in animation for sections on scroll
-    const sections = document.querySelectorAll('section');
-    const fadeInOnScroll = () => {
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            const sectionBottom = section.getBoundingClientRect().bottom;
-            if (sectionTop < window.innerHeight && sectionBottom > 0) {
-                section.style.opacity = '1';
-                section.style.transform = 'translateY(0)';
+            if (elementTop < windowHeight - revealPoint && elementBottom >= 0) {
+                element.classList.add('active');
+            } else {
+                element.classList.remove('active');
             }
         });
     };
 
-    window.addEventListener('scroll', fadeInOnScroll);
-    fadeInOnScroll(); // Initial check
+    window.addEventListener('scroll', throttle(animateOnScroll, 50));
+    animateOnScroll(); // Initial check
 
-    // Add a subtle parallax effect to the hero section
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            hero.style.backgroundPositionY = `${scrollY * 0.5}px`;
-        });
+    // Enhanced Toast Notification System
+    class NotificationManager {
+        static show(message, type = 'info', duration = 3000) {
+            const toast = document.createElement('div');
+            toast.classList.add('toast', `toast--${type}`, 'toast--animated');
+            toast.innerHTML = `
+                <div class="toast__icon"></div>
+                <div class="toast__content">${message}</div>
+                <div class="toast__progress"></div>
+            `;
+
+            document.body.appendChild(toast);
+            
+            // Trigger reflow for animation
+            toast.offsetHeight;
+            
+            toast.classList.add('toast--visible');
+
+            const progressBar = toast.querySelector('.toast__progress');
+            progressBar.style.animationDuration = `${duration}ms`;
+
+            setTimeout(() => {
+                toast.classList.remove('toast--visible');
+                setTimeout(() => toast.remove(), 300);
+            }, duration);
+        }
     }
+
+    // Example usage
+    window.NotificationManager = NotificationManager;
+
+    // Advanced Version Comparison Tooltip
+    const addVersionTooltips = () => {
+        const versionElements = document.querySelectorAll('.mod-version');
+        
+        versionElements.forEach(element => {
+            const version = element.getAttribute('data-version');
+            const compatibilityInfo = element.getAttribute('data-compatibility');
+
+            element.addEventListener('mouseenter', (e) => {
+                const tooltip = document.createElement('div');
+                tooltip.classList.add('version-tooltip');
+                tooltip.innerHTML = `
+                    <strong>Version:</strong> ${version}<br>
+                    <strong>Compatibility:</strong> ${compatibilityInfo}
+                `;
+                
+                document.body.appendChild(tooltip);
+                
+                const rect = element.getBoundingClientRect();
+                tooltip.style.top = `${rect.bottom + window.scrollY + 10}px`;
+                tooltip.style.left = `${rect.left + window.scrollX}px`;
+            });
+
+            element.addEventListener('mouseleave', () => {
+                const existingTooltip = document.querySelector('.version-tooltip');
+                if (existingTooltip) {
+                    existingTooltip.remove();
+                }
+            });
+        });
+    };
+
+    addVersionTooltips();
+
+    // Performance Monitoring and Error Tracking
+    window.addEventListener('error', (event) => {
+        NotificationManager.show(`Error: ${event.message}`, 'error');
+        // You could send this to a tracking service in a real implementation
+        console.error('Unhandled error:', event);
+    });
 });
