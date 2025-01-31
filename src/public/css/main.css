@@ -204,6 +204,33 @@ body {
     text-decoration: none;
 }
 
+/* Trouble Section */
+.trouble-card {
+    background: #e4e4e4; /* Light background for contrast */
+    color: #000000; /* Dark text for readability */
+    padding: 20px;
+    margin: 20px auto; /* Center the card horizontally */
+    max-width: 600px; /* Keep it readable on larger screens */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.trouble-card h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #0078d4; /* Accent color */
+    padding-bottom: 5px;
+}
+
+.trouble-card p {
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.trouble-card b {
+    color: #0078d4; /* Highlight important terms */
+}
 /* Quick Links */
 .quick-links {
     padding: var(--space-2xl) 0;
@@ -364,4 +391,11 @@ body {
     margin-top: var(--space-2xl);
     padding-top: var(--space-lg);
     border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+@media (max-width: 768px) {
+    .trouble-card {
+        max-width: 90%;
+        padding: 15px;
+    }
 }
