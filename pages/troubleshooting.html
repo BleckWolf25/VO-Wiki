@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Official documentation for the Velocita Optimized Minecraft Modpack">
-    <title>Velocita Optimized - FAQs</title>
+    <title>Velocita Optimized - Troubleshooting</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/src/public/css/main.css">
-    <link rel="icon" type="image/x-icon" href="/src/public/images/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
 </head>
 <body>
     <header class="header">
         <div class="header__container">
             <a href="/" class="header__logo">
-                <img src="/src/public/images/VO.png" alt="VO Logo" width="32" height="32">
+                <img src="assets/images/VO.png" alt="VO Logo" width="32" height="32">
                 <span>Velocita Optimized</span>
             </a>
             <nav class="nav">
@@ -33,10 +33,10 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero__content">
-            <h1>Frequently Asked Questions</h1>
-            <p>Find answers to the most common questions about our Minecraft Modpack</p>
+            <h1>Troubleshooting</h1>
+            <p>Find detailed solutions step-by-step how to fix common VO issues</p>
             <div class="hero__actions">
-                <a href="troubleshooting.html" class="button button--primary">Check Troubleshooting</a>
+                <a href="faq.html" class="button button--primary">Check FAQs</a>
                 <a href="getting-started.html" class="button button--secondary">Get Started</a>
             </div>
         </div>
@@ -45,49 +45,36 @@
     <!-- FAQ Content -->
     <section class="container features">
         <div class="features__grid">
-            <article class="feature-card">
-                <div class="feature-card__icon">❓</div>
-                <h2>What is a Modpack?</h2>
-                <p>A modpack is a collection of Minecraft mods pre-configured to work together, offering a unique gameplay experience.</p>
-                <a href="getting-started.html" class="feature-card__link">Learn More →</a>
+            <article class="trouble-card">
+                <h2>1. Fullscreen Issues</h2>
+                <p>If your fullscreen mode is bugged, it may be caused by your launcher or game settings. Follow these steps to fix the issue: 
+                    <br>
+                    <br>    1. Open <b>Options</b> → <b>Video Settings</b> → <b>Fullscreen</b>, and set it to <b>Off</b>.
+                    <br>    2. Turn <b>On Fullscreen</b> again.
+                    <br>    3. If it still doesn't work, <b>try to change the resolution of the game.</b>
+                    <br>    4. If it still doesn't work, <b>try to change the resolution of your monitor.</b>
+                    <br>    5. If it still doesn't work, <b>try Fullscreen Off & bordless window and then Fullscreen On.</b>
+                    <br>    6. If it still doesn't work, <b>try to uncheck the FullScreen option in your launch settings/version settings.</b>
+                    <br>    7. If it still doesn't work, <b>try to reinstall the game and/or the modpack.</b>
+                </p>
             </article>
 
-            <article class="feature-card">
-                <div class="feature-card__icon">🔧</div>
-                <h2>How to Install?</h2>
-                <p>Download the modpack from our official launcher, run the installer, and launch Minecraft through the provided profile.</p>
+            <article class="trouble-card">
+                <h2>2. FPS Issues</h2>
+                <p>If you're experiencing lag despite having a high-end computer, try the following steps to improve performance:
+                    <br>
+                    <br>    1. Open <b>Options</b> → <b>Video Settings</b> → <b>Fullscreen</b>, and set it to <b>Off</b>.
+                    <br>    2. Turn <b>On Fullscreen</b> again. - This will make the game faster and more stable.
+                    <br>    3. Lower your <b>Render Distance/Distance Simulation/Max Shadow Distance</b> to 12 or lower.
+                    <br>    4. Set your <b>Graphics</b> to <b>Fast</b> instead of Fancy.
+                    <br>    5. If using shaders, switch to a lower-quality preset <b>(Potato, Very Low, Low, or Medium)</b> or disable shaders entirely.
+                    <br>    6. Toggle <b>VSync On/Off</b> to see if it improves performance.
+                    <br>    7. Allocate <b>more RAM</b> to the game in your launcher settings.
+                    <br>    8. If the issue persists, try reinstalling the modpack.
+                    <br>    9. Some Minecraft versions are poorly optimized, which might be the root cause of performance issues. Consider trying a different version.
+                </p>
             </article>
 
-            <article class="feature-card">
-                <div class="feature-card__icon">💻</div>
-                <h2>System Requirements</h2>
-                <p>Minimum: 4GB RAM, Intel/AMD/Apple CPU, dedicated/integrated GPU. Recommended: 12-16GB RAM, modern multi-core processor.</p>
-            </article>
-
-            <article class="feature-card">
-                <div class="feature-card__icon">🔒</div>
-                <h2>Is it safe?</h2>
-                <p>Yes, the modpack is safe. We host the source code on GitHub, and we have mods that are open-source, including shaders and resource packs, so you can see exactly what's going on behind the scenes.</p>
-            </article>
-
-            <article class="feature-card">
-                <div class="feature-card__icon">🌐</div>
-                <h2>Multiplayer Support</h2>
-                <p>Our modpack supports multiplayer. You can join any vanilla server without changing the server.           </article>
-
-            <article class="feature-card">
-                <div class="feature-card__icon">🔄</div>
-                <h2>Update Frequency</h2>
-                <p>We update the modpack monthly, addressing bugs, adding new mods, new minecraft versions and improving overall stability.</p>
-                <a href="https://modrinth.com/modpack/velocita-optimized/changelog" class="feature-card__link">View Changelog →</a>
-            </article>
-
-            <article class="feature-card">
-                <div class="feature-card__icon">💾</div>
-                <h2>Mod Compatibility</h2>
-                <p>All mods in our pack are carefully tested to ensure they work harmoniously together.</p>
-                <a href="mods.html" class="feature-card__link">View Mod List →</a>
-            </article>
         </div>
     </section>
 
@@ -95,7 +82,7 @@
         <div class="container">
             <div class="footer__content">
                 <div class="footer__brand">
-                    <img src="/src/public/images/VO.png" alt="VO Logo" width="24" height="24">
+                    <img src="/assets/public/images/VO.png" alt="VO Logo" width="24" height="24">
                     <p>Velocita Optimized Wiki</p>
                 </div>
                 <nav class="footer__links">
@@ -128,6 +115,6 @@
             </div>
         </div>
     </footer>
-    <script src="main.js"></script>
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
