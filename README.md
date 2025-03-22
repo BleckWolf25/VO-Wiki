@@ -20,7 +20,7 @@ If you need further assistance or want to connect with other users, join our [Di
 
 ## Related Repository
 
-This repository is connected with the [VO Modpack Repository](https://github.com/BleckWolf25/velocita-optimized), where you can find the modpack itself and additional resources.
+This repository is connected with the [VO Modpack Repository](), where you can find the modpack itself and additional resources.
 
 ## License
 
